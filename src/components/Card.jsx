@@ -15,20 +15,20 @@ export default class Card extends Component {
     } = this.props;
     return (
       <div>
-        <h1 data-testid="name-card">{ cardName }</h1>
+        <p data-testid="name-card">{ cardName }</p>
         <img data-testid="image-card" src={ cardImage } alt={ cardName } />
-        <h2 data-testid="description-card">{ cardDescription }</h2>
-        <h2 data-testid="attr1-card">{ cardAttr1 }</h2>
-        <h2 data-testid="attr2-card">{ cardAttr2 }</h2>
-        <h2 data-testid="attr3-card">{ cardAttr3 }</h2>
-        <h2 data-testid="rare-card">{ cardRare }</h2>
-        <h2>
+        <p data-testid="description-card">{ cardDescription }</p>
+        <p data-testid="attr1-card">{ cardAttr1 }</p>
+        <p data-testid="attr2-card">{ cardAttr2 }</p>
+        <p data-testid="attr3-card">{ cardAttr3 }</p>
+        <p data-testid="rare-card">{ cardRare }</p>
+        <h4>
           {cardTrunfo !== true ? (
             <> </>
           ) : (
-            <h2 data-testid="trunfo-card">Super Trunfo</h2>
+            <p data-testid="trunfo-card">Super Trunfo</p>
           )}
-        </h2>
+        </h4>
       </div>
     );
   }

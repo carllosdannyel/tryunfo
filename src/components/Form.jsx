@@ -21,7 +21,7 @@ export default class Form extends Component {
     return (
       <form>
         <label htmlFor="nome">
-          Nome
+          Nome:
           <input
             name="cardName"
             value={ cardName }
@@ -33,18 +33,17 @@ export default class Form extends Component {
           />
         </label>
         <label htmlFor="descricao">
-          Descrição
-          <input
+          Descrição:
+          <textarea
             name="cardDescription"
             value={ cardDescription }
             onChange={ onInputChange }
             data-testid="description-input"
-            type="textarea"
             id="descricao"
           />
         </label>
         <label htmlFor="attr1input">
-          Attr01
+          Atributo 01:
           <input
             name="cardAttr1"
             value={ cardAttr1 }
@@ -55,7 +54,7 @@ export default class Form extends Component {
           />
         </label>
         <label htmlFor="attr2input">
-          Attr02
+          Atributo 02:
           <input
             name="cardAttr2"
             value={ cardAttr2 }
@@ -66,7 +65,7 @@ export default class Form extends Component {
           />
         </label>
         <label htmlFor="attr3input">
-          Attr03
+          Atributo 03:
           <input
             name="cardAttr3"
             value={ cardAttr3 }
@@ -77,7 +76,7 @@ export default class Form extends Component {
           />
         </label>
         <label htmlFor="imagem">
-          Imagem
+          URL da Imagem:
           <input
             name="cardImage"
             value={ cardImage }
@@ -88,7 +87,7 @@ export default class Form extends Component {
           />
         </label>
         <label htmlFor="raridade">
-          Raridade
+          Raridade:
           <select
             name="cardRare"
             value={ cardRare }
