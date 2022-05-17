@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './components/Card';
 import Form from './components/Form';
+import './App.css';
 
 class App extends React.Component {
   state = {
@@ -16,11 +17,6 @@ class App extends React.Component {
     isSaveButtonDisabled: true,
   }
 
-  // isGreaterOrLessThan = () => (
-  //   if (cardAttr1 > maxNumber || cardAttr1 < 0) return false;
-  //   if (cardAttr2 > maxNumber || cardAttr2 < 0)
-  // )
-
   isEnabled = () => {
     const { cardName, cardDescription,
       cardAttr1, cardAttr2, cardAttr3,
@@ -30,12 +26,7 @@ class App extends React.Component {
       cardName.length === 0
       || cardDescription.length === 0
       || cardImage.length === 0
-      // || cardRare !== ''
-      // || cardAttr1 !== null
-      // || cardAttr2 !== null
-      // || cardAttr3 !== null
     );
-    console.log(isDifferentFromEmpty());
 
     const isGreaterThan210 = () => {
       const totalNumber = 210;
@@ -44,7 +35,6 @@ class App extends React.Component {
       const inputThree = Number(cardAttr3);
       return inputOne + inputTwo + inputThree > totalNumber;
     };
-    // console.log(isGreaterThan210());
 
     const greaterOrLessThan = () => {
       const maxNumber = 90;
@@ -58,7 +48,6 @@ class App extends React.Component {
         || inputThree > maxNumber || inputThree < minNumber;
     };
 
-    // console.log(greaterOrLessThan()); isDifferentFromEmpty()
     if (isDifferentFromEmpty()) {
       this.setState({ isSaveButtonDisabled: true });
     } else if (greaterOrLessThan()) {
@@ -93,21 +82,26 @@ class App extends React.Component {
     } = this.state;
     return (
       <div>
-        <h1>Adicionar nova carta</h1>
-        <Form
-          onInputChange={ this.handleChange }
-          isSaveButtonDisabled={ isSaveButtonDisabled }
-        />
-        <Card
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-        />
+        <div className="general-container">
+          <div className="form-container">
+            <Form
+              onInputChange={ this.handleChange }
+              isSaveButtonDisabled={ isSaveButtonDisabled }
+            />
+          </div>
+          <div className="card-container">
+            <Card
+              cardName={ cardName }
+              cardDescription={ cardDescription }
+              cardAttr1={ cardAttr1 }
+              cardAttr2={ cardAttr2 }
+              cardAttr3={ cardAttr3 }
+              cardImage={ cardImage }
+              cardRare={ cardRare }
+              cardTrunfo={ cardTrunfo }
+            />
+          </div>
+        </div>
       </div>
     );
   }

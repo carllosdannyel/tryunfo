@@ -1,0 +1,45 @@
+.general-container {
+  display: flex;
+  flex-direction: row;
+  /* background-color: yellow; */
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  /* background-color: green; */
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  background-color: aqua;
+}
+
+.form-completed {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10% 20%;
+}
+
+.card-completed {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10% 20%;
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-max {
+  width: 100%;
+  padding: 10px;
+  border-bottom: 2px solid black;
+  cursor: auto;
+}
