@@ -91,17 +91,7 @@ class App extends React.Component {
   }
 
   render() {
-    const {
-      cardName,
-      cardDescription,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-      cardImage,
-      cardRare,
-      cardTrunfo,
-      isSaveButtonDisabled,
-    } = this.state;
+    const { isSaveButtonDisabled, cardList } = this.state;
     return (
       <div>
         <div className="general-container">
@@ -114,16 +104,19 @@ class App extends React.Component {
             />
           </div>
           <div className="card-container">
-            <Card
-              cardName={ cardName }
-              cardDescription={ cardDescription }
-              cardAttr1={ cardAttr1 }
-              cardAttr2={ cardAttr2 }
-              cardAttr3={ cardAttr3 }
-              cardImage={ cardImage }
-              cardRare={ cardRare }
-              cardTrunfo={ cardTrunfo }
-            />
+            <Card { ...this.state } />
+            {cardList.map((item, index) => (
+              <Card
+                key={ `${item.cardName} ${index + 1}` }
+                cardName={ item.cardName }
+                cardDescription={ item.cardDescription }
+                cardAttr1={ item.cardAttr1 }
+                cardAttr2={ item.cardAttr2 }
+                cardAttr3={ item.cardAttr3 }
+                cardRare={ item.cardRare }
+                cardTrunfo={ item.cardTrunfo }
+              />
+            ))}
           </div>
         </div>
       </div>
