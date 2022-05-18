@@ -1,21 +1,19 @@
 .general-container {
   display: flex;
   flex-direction: row;
-  /* background-color: yellow; */
 }
 
 .form-container {
   display: flex;
   flex-direction: column;
   width: 50%;
-  /* background-color: green; */
 }
 
 .card-container {
   display: flex;
   flex-direction: column;
   width: 50%;
-  background-color: aqua;
+  background-color: #036b52;
 }
 
 .form-completed {
@@ -28,8 +26,9 @@
 .card-completed {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 10% 20%;
+  justify-content: center;
+  padding: 30% 20%;
+  /* background-color: white; */
 }
 
 .forms {
@@ -42,4 +41,15 @@
   padding: 10px;
   border-bottom: 2px solid black;
   cursor: auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  padding: 10% 20%;
+  background-color: white;
+  border-radius: 5px;
 }

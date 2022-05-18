@@ -20,13 +20,23 @@ class App extends React.Component {
   isEnabled = () => {
     const { cardName, cardDescription,
       cardAttr1, cardAttr2, cardAttr3,
-      cardImage /* cardRare */ } = this.state;
+      cardImage, cardRare } = this.state;
 
     const isDifferentFromEmpty = () => (
-      cardName.length === 0
-      || cardDescription.length === 0
-      || cardImage.length === 0
+      !cardName || !cardDescription || !cardImage || !cardRare
     );
+
+    const lessThan0OrGreaterThan90 = () => {
+      const maxNumber = 90;
+      const minNumber = 0;
+      const inputOne = Number(cardAttr1);
+      const inputTwo = Number(cardAttr2);
+      const inputThree = Number(cardAttr3);
+
+      return inputOne < minNumber || inputOne > maxNumber
+        || inputTwo < minNumber || inputTwo > maxNumber
+        || inputThree < minNumber || inputThree > maxNumber;
+    };
 
     const isGreaterThan210 = () => {
       const totalNumber = 210;
@@ -36,21 +46,9 @@ class App extends React.Component {
       return inputOne + inputTwo + inputThree > totalNumber;
     };
 
-    const greaterOrLessThan = () => {
-      const maxNumber = 90;
-      const minNumber = 0;
-      const inputOne = Number(cardAttr1);
-      const inputTwo = Number(cardAttr2);
-      const inputThree = Number(cardAttr3);
-
-      return inputOne > maxNumber || inputOne < minNumber
-        || inputTwo > maxNumber || inputTwo < minNumber
-        || inputThree > maxNumber || inputThree < minNumber;
-    };
-
     if (isDifferentFromEmpty()) {
       this.setState({ isSaveButtonDisabled: true });
-    } else if (greaterOrLessThan()) {
+    } else if (lessThan0OrGreaterThan90()) {
       this.setState({ isSaveButtonDisabled: true });
     } else if (isGreaterThan210()) {
       this.setState({ isSaveButtonDisabled: true });
@@ -67,6 +65,23 @@ class App extends React.Component {
           : event.target.value,
     }, this.isEnabled);
   };
+
+  hasTrunfo = () => {
+
+  }
+
+  resetForm = () => {
+    this.setState({
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardImage: '',
+      cardRare: 'normal',
+      cardTrunfo: false,
+    });
+  }
 
   render() {
     const {
@@ -85,6 +100,8 @@ class App extends React.Component {
         <div className="general-container">
           <div className="form-container">
             <Form
+              { ...this.state }
+              onSaveButtonClick={ this.resetForm }
               onInputChange={ this.handleChange }
               isSaveButtonDisabled={ isSaveButtonDisabled }
             />
