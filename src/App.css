@@ -10,16 +10,16 @@
 }
 
 .card-container {
+  background-color: #036b52;
   display: flex;
   flex-direction: column;
   width: 50%;
-  background-color: #036b52;
 }
 
 .form-completed {
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   padding: 10% 20%;
 }
 
@@ -28,7 +28,6 @@
   flex-direction: column;
   justify-content: center;
   padding: 30% 20%;
-  /* background-color: white; */
 }
 
 .forms {
@@ -37,19 +36,19 @@
 }
 
 .input-max {
-  width: 100%;
-  padding: 10px;
   border-bottom: 2px solid black;
   cursor: auto;
+  padding: 10px;
+  width: 100%;
 }
 
 .card {
+  align-items: center;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  border: 2px solid black;
   padding: 10% 20%;
-  background-color: white;
-  border-radius: 5px;
 }
