@@ -13,8 +13,9 @@ class App extends React.Component {
     cardImage: '',
     cardRare: '',
     cardTrunfo: false,
-    // hasTrunfo: false,
+    hasTrunfo: false,
     isSaveButtonDisabled: true,
+    cardList: [],
   }
 
   isEnabled = () => {
@@ -71,7 +72,12 @@ class App extends React.Component {
   }
 
   resetForm = () => {
-    this.setState({
+    const { cardTrunfo } = this.state;
+    if (cardTrunfo === true) {
+      this.setState({ hasTrunfo: true });
+    }
+
+    this.setState((prev) => ({
       cardName: '',
       cardDescription: '',
       cardAttr1: '0',
@@ -80,7 +86,8 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
-    });
+      cardList: [...prev.cardList, prev],
+    }));
   }
 
   render() {
